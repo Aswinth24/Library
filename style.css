@@ -1,0 +1,228 @@
+*,*::before,*::after{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Poppins', sans-serif;
+    width:100%;
+    height: 100vh;
+    background: rgb(250, 250, 255);
+}
+#header{
+    height:90px;
+    box-shadow:2px 2px 3px rgba(0, 0, 0, 0.15);
+    display:flex;
+    justify-content: space-around ;
+    gap:50px;
+    align-items: center;
+    
+}
+#nav{
+    gap: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#toggle{
+    width:60px;
+    box-shadow: -2px -2px 2px rgba(255, 255, 255, 0.1),
+                2px 2px 2px rgba(0, 0, 0, 0.1),
+              inset -2px -2px 2px rgba(255, 255, 255, 0.1),
+              inset 2px 2px 2px rgba(0, 0, 0, 0.1);
+   
+    height:25px;
+    display: block;
+    position: relative;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+#toggle .indicator{
+    left:0;
+    top:0;
+    position:absolute;
+    width:25px;
+    height:26px;
+    border-radius: 50%;
+    background-color: rgba(68, 67, 67, 0.8);
+    transition: 0.5s;
+    transform: scale(0.8);
+   }
+#toggle .active 
+{
+    left:36px;
+}
+#login{
+    width:100px;
+    height:40px;
+    border:0;
+    font-size: 22px;
+    border-radius: 10px;
+    background: transparent;
+    cursor: pointer;
+    font-weight: 600;
+    box-shadow: -5px -5px 5px rgba(255, 255, 255, 0.1),
+                 5px 5px 5px rgba(0, 0, 0, 0.1); 
+}
+#add-book{
+    width:100%;
+    height:100px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    >.add{
+        box-shadow: -2px 0px 5px rgb(0, 0, 0,0.15),
+                     0px 2px 5px rgb(0, 0, 0,0.15),
+                     2px 0px 5px rgb(0, 0, 0,0.15);
+        cursor: pointer;
+        padding:0 13px;
+        font-size: 45px;
+        font-weight: 600;
+        border-radius: 50%;
+       
+        transition: 0.8s ease-in-out;
+    }
+}
+#add-book:hover .add{
+    font-size: 50px;
+    padding:0 13px;
+    transform: rotate(270deg);
+}
+.form-model
+{
+    position: fixed;
+    padding:20px;
+    background-color: #fff;
+    width:300px;
+    z-index: 1;
+    top:50%;
+    left:50%;
+    transition: 0.3s ease-in-out;
+    transform: translate(-50%,-50%) scale(0);
+    border-radius: 10px;
+}
+.form-model.active{
+    
+   transform: translate(-50%,-50%) scale(1);
+}
+.add-book-form{ 
+    display: flex;
+    flex-direction: column;
+    gap:30px;
+    align-items: center;
+}
+.add-book-form>.submit-cancel{
+    display: flex;
+    gap:40px;
+}
+.add-book-form>.submit-cancel button,.submit-cancel span{    
+    text-align: center;
+    background-color: transparent;
+    width: 100px;
+    border:0;
+    font-size:20px;
+    padding:10px;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow:2px 2px 2px rgba(0, 0, 0, 0.1),
+               -2px -2px 2px rgba(0, 0, 0, 0.1);
+}
+#read-btn{
+    display: flex;
+    gap:15px;
+}
+input{
+    border: 0;
+    outline: 0;
+}
+.add-book-form>input{  
+    border:0;
+    padding:20px;
+    width:16rem;
+    height:0.8rem;
+    font-size:18px;
+    font-weight: 700; 
+    border-radius: 10px;
+    box-shadow:1px 1px 5px rgb(0, 0, 0,0.08)
+            ,-1px -1px 5px rgb(0, 0, 0,0.08);
+}
+#error-message{
+    color:red;
+    display: none;
+    font-weight: 600;
+    text-align: center;
+}
+#error-message.active{
+    display: block;
+    margin-top:-20px;
+    margin-bottom:-20px;
+}
+.overlay 
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(14, 14, 14, 0.5);
+} 
+.overlay.active 
+{
+  display: block;
+}
+#main{
+    margin:20px;
+}
+.book-deck{
+    display: grid;
+    margin:20px;
+    gap:30px;
+    grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
+}
+.card{
+    box-shadow:2px 2px 5px -1px rgba(0,0,0,0.15),
+           -2px -2px 5px -1px rgba(0, 0, 0, 0.15); 
+    border-radius: 10px;
+    word-wrap: break-word;
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+   justify-content: space-between;
+    padding:20px;
+    background-color: #fff;
+}
+.topic{
+    
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    text-align: center;
+    
+    >p{
+        font-size: 18px;
+        font-weight: 500;
+    }
+   
+}
+.topic h3{
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.status{
+    display: flex;
+    justify-content: space-around;
+}
+.status>button{
+    width:100px;
+    height:40px;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: transparent;
+    border: 0;
+    border-radius: 10px;
+    box-shadow:2px 2px 2px rgba(0, 0, 0, 0.1),
+           -2px -2px 2px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}

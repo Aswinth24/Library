@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Library</title>
+    <link rel="icon" type="image/x-icon" href="icon/icons8-book-windows-11-color-96.png">
+</head>
+
+<body>
+    <header id="header">
+        <h1>Library</h1>
+        <nav id="nav">
+            <div id="toggle">
+                <i class="indicator"></i>
+            </div>
+            <button id="login">Login</button>
+        </nav>
+
+    </header>
+    <main id="main">
+        <div id="add-book">
+            <span class="add">+</span>
+        </div>
+        <div class="book-deck" id="book-card">
+        </div>
+
+    </main>
+    <div class="form-model" id="form-container">
+        <form  class="add-book-form" id="form">
+            <h2>Add New Book</h2>
+            <input type="text" id="title" placeholder="Title" maxlength="100" required>
+            <p id="error-message"></p>
+            <input type="text" id="author" placeholder="Author" maxlength="100" required>
+            <input type="number" id="page_no" placeholder="0" max="10000" required>
+            <div id="read-btn">
+                <h3>Have you Read id?</h3>
+                <input type="checkbox" name="" id="read" style="width:16px;border:none;background-color:red;">
+            </div>
+            <div class="submit-cancel">
+                <button type="submit">Submit</button>
+                <span id="cancel">Cancel</span>
+            </div>
+        </form>
+    </div>
+    <div class="overlay" id="overlay"></div>
+    <script src="index.js"></script>
+</body>
+
+</html>
