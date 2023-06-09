@@ -3,14 +3,36 @@ let addButton=document.querySelector(".add");
 let addBookForm=document.querySelector('#form');
 let container=document.querySelector('#form-container');
 let overlay=document.querySelector('#overlay');
-
+let toggle=document.querySelector('#toggle');
+let active=false;
 let cancel=document.querySelector('#cancel');
+
 
 addButton.addEventListener('click',addBookFormCard);
 cancel.addEventListener('click',cancelBookFormCard);
 
-document.querySelector('#toggle').addEventListener('click',()=>{
-    document.querySelector('.indicator').classList.toggle('active');
+toggle.addEventListener('click',()=>
+{
+    
+    active=active==true?false:true;
+    toggle.classList.toggle('active');
+    document.querySelector(".indicator").classList.toggle('active');
+    //document.querySelector('#header').classList.toggle('change-color');
+    document.querySelector('#login').classList.toggle('active');
+    document.querySelector('body').classList.toggle('change-color');
+    document.querySelector('.add').classList.toggle('active');
+    container.classList.toggle('active1');
+   
+    let childCard=document.querySelector(".card")
+    if(childCard!==null&&active==true)
+    {   
+      
+       document.querySelector('.card').classList.add('active');
+    }
+    else if(childCard!==null&&active==false)
+    {
+        document.querySelector('.card').classList.remove('active');
+    }
 });
 
 
@@ -66,7 +88,7 @@ function addBook()
     for(let i=0;i<library.length;i++)
      {
         let divCard=document.createElement('div');
-        divCard.setAttribute('class','card');
+        divCard.setAttribute('class',`card ${active==true?'active':""}`);
         divCard.innerHTML=`
         <div class="topic">
             <h3>Title</h3>
@@ -82,9 +104,8 @@ function addBook()
         </div>
         <div class="status">
             <button onclick=changeStatus(${i},${library[i].read}) id='status-read' style="color:${changecolor(library[i].read)}">${library[i].read==true?'Readed':'Not Read'}</button>
-            <button onclick=removebtn(${i})>Delete</button>
-        </div>
-        `;
+            <button class="rembtn" onclick=removebtn(${i})>Delete</button>
+        </div>`;
         card.appendChild(divCard);
      }
 }
@@ -95,7 +116,7 @@ function changeStatus(index,flag)
 
 }
 function changecolor(flag){
-       return flag==true?'Green':'red';
+       return flag==true?'rgb(0 ,184 ,163)':'#ff2d55';
 }
 function removebtn(index){
    
